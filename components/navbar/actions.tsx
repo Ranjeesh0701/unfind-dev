@@ -9,8 +9,18 @@ interface ActionsProps {}
 const Actions: React.FC<ActionsProps> = ({}) => {
   return (
     <div className="flex items-center gap-4">
-      <Icon icon={MessageSquare} pointer size={ICONSIZE.sm} />
-      <Icon icon={Bell} pointer size={ICONSIZE.sm} />
+      <Icon
+        icon={MessageSquare}
+        pointer
+        size={ICONSIZE.sm}
+        style={{ strokeWidth: 1.5 }}
+      />
+      <Icon
+        icon={Bell}
+        pointer
+        size={ICONSIZE.sm}
+        style={{ strokeWidth: 1.5 }}
+      />
     </div>
   );
 };

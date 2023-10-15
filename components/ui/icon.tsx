@@ -3,6 +3,7 @@
 import { LucideIcon } from "lucide-react";
 
 import { ICONSIZE } from "@/shared/size";
+import { HtmlHTMLAttributes } from "react";
 
 interface IconProps {
   icon: LucideIcon;
@@ -15,13 +16,14 @@ interface IconProps {
   color?: string;
 }
 
-const Icon: React.FC<IconProps> = ({
+const Icon: React.FC<IconProps & React.HtmlHTMLAttributes<SVGSVGElement>> = ({
   icon: Icon,
   label,
   size,
   pointer,
   labelVertical,
   color,
+  ...props
 }) => {
   return (
     <div
@@ -33,6 +35,7 @@ const Icon: React.FC<IconProps> = ({
         className={`${pointer && "cursor-pointer"}`}
         color={color ? color : "black"}
         size={size || ICONSIZE.md}
+        {...props}
       />
       {label && <p className="text-sm">{label}</p>}
     </div>
