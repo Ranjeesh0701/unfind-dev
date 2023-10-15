@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import * as z from "zod";
+import axios from "axios";
 
 import Heading from "@/components/heading";
 import { Button } from "@/components/ui/button";
@@ -60,18 +61,17 @@ const PostProjectForm: React.FC = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    // TODO: after creating api
-    // try {
-    //   setIsLoading(true);
-    //   await axios.post("/api/project/new", values);
-    //   console.log(values);
-    //   form.reset();
-    // } catch (error) {
-    //   // TODO: handle error creating project
-    // } finally {
-    //   setIsLoading(false);
-    // }
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      setIsLoading(true);
+      await axios.post("/api/project/new", values);
+      console.log(values);
+      form.reset();
+    } catch (error) {
+      // TODO: handle error creating project
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
