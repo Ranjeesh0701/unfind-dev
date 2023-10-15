@@ -1,7 +1,6 @@
 import Search from "../ui/search";
-
 import { getAuthSession } from "@/libs/auth";
-import Actions from "./actions";
+import Menu from "./menu";
 
 const Navbar: React.FC = async () => {
   const session = await getAuthSession();
@@ -17,11 +16,7 @@ const Navbar: React.FC = async () => {
         </div>
       </div>
       <div>
-        <div className="flex items-center gap-3">
-          <Actions />
-          <div className="h-[20px] w-[1px] bg-gray-200"></div>
-          <div></div>
-        </div>
+        <Menu user={session?.user} />
       </div>
     </div>
   );

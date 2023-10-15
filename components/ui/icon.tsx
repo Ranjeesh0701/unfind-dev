@@ -26,7 +26,7 @@ const Icon: React.FC<IconProps> = ({
   return (
     <div
       className={`flex items-center justify-center ${
-        labelVertical ? "flex-col" : "gap-2"
+        labelVertical ? "flex-col" : "gap-4"
       }`}
     >
       <Icon

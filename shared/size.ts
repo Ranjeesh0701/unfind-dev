@@ -1,6 +1,6 @@
 export enum ICONSIZE {
-  xxs = 12,
-  xs = 14,
+  xxs = 14,
+  xs = 16,
   sm = 18,
   md = 20,
   lg = 24,
