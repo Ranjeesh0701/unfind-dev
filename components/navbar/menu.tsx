@@ -1,6 +1,6 @@
 "use client";
 
-import { Send, Settings, LogOut } from "lucide-react";
+import { Send, Settings, LogOut, ChevronDown } from "lucide-react";
 import { User } from "next-auth";
 
 import { Avatar, AvatarImage } from "../ui/avatar";
@@ -8,6 +8,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
@@ -31,6 +32,20 @@ const Menu: React.FC<MenuProps> = ({ user }) => {
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="me-4">
+          <DropdownMenuLabel>
+            <div className="flex items-center gap-2 max-w-[190px]">
+              <Avatar className="rounded">
+                <AvatarImage src={user?.image as string | undefined} />
+              </Avatar>
+              <div className="overflow-hidden">
+                <div className="font-bold truncate">{user?.name}</div>
+                <div className="text-xs text-gray-500 truncate">
+                  {user?.email}
+                </div>
+              </div>
+            </div>
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator />
           <DropdownMenuItem>
             <Icon size={ICONSIZE.xs} icon={Send} label="Proposals" />
           </DropdownMenuItem>
