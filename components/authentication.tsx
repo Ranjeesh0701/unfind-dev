@@ -33,7 +33,7 @@ const Authentication: React.FC<AuthenticationProps> = ({ signin }) => {
             <Input
               type="email"
               placeholder="Email..."
-              className=" focus-visible:outline-none focus-visible:ring-offset-0 focus-visible:ring-1"
+              className="focus-visible:outline-none focus-visible:ring-offset-0 focus-visible:ring-1"
             />
             <Input
               type="password"
