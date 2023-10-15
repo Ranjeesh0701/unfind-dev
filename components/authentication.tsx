@@ -10,6 +10,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import Icon from "@/components/ui/icon";
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "./ui/checkbox";
 
 interface AuthenticationProps {
   signin?: boolean;
@@ -40,11 +41,14 @@ const Authentication: React.FC<AuthenticationProps> = ({ signin }) => {
               className="focus-visible:outline-none focus-visible:ring-offset-0 focus-visible:ring-1"
             />
             <div className="flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
-              <div className="flex gap-2">
-                <input type="checkbox" />
-                <p className="font-bold cursor-pointer text-sm">
+              <div className="flex items-center gap-2">
+                <Checkbox id="remember-me" />
+                <label
+                  htmlFor="remember-me"
+                  className="font-bold cursor-pointer text-sm"
+                >
                   Remember for 30 days
-                </p>
+                </label>
               </div>
               {signin && (
                 <p className="font-bold cursor-pointer text-sm underline">
