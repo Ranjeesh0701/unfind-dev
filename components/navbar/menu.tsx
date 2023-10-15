@@ -26,7 +26,7 @@ const Menu: React.FC<MenuProps> = ({ user }) => {
       <Actions />
       <div className="h-[20px] w-[1px] bg-gray-200"></div>
       <DropdownMenu>
-        <DropdownMenuTrigger>
+        <DropdownMenuTrigger className="focus-visible:outline-none">
           <Avatar>
             <AvatarImage src={user?.image as string | undefined} />
           </Avatar>
