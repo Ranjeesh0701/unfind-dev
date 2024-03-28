@@ -17,8 +17,22 @@ model User {
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 
-  accounts Account[]
-  projects Project[]
+  profile Profile?
+
+  accounts               Account[]
+  projects               Project[]
+  proposals              Proposal[]
+  receivedConversations  Conversation[] @relation("receivedConversations")
+  initiatedConversations Conversation[] @relation("initiatedConversations")
+  messages               Message[]
+}
+
+model Profile {
+  id       String @id @default(uuid())
+  username String @unique
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
 }
 
 model Account {
@@ -47,11 +61,13 @@ model Project {
   description     String
   pricingScheme   ProjectPricingScheme @default(HOURLY)
   experienceLevel ProjectExperience    @default(BEGINNER)
+  status          ProjectStatus        @default(OPEN)
   price           Int
   deadline        DateTime?
   duration        String?
   attachments     Attachment[]
   categories      Category[]
+  proposals       Proposal[]
 
   user User @relation(fields: [userId], references: [id])
 
@@ -74,9 +90,50 @@ model Category {
   projectId String?
   name      String
 
-  createAt DateTime @default(now())
+  createdAt DateTime @default(now())
 
   project Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model Proposal {
+  text      String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId    String
+  projectId String
+
+  user    User    @relation(fields: [userId], references: [id])
+  project Project @relation(fields: [projectId], references: [id])
+
+  @@id([userId, projectId])
+}
+
+model Conversation {
+  id            String @id @default(uuid())
+  initiatedById String
+  initiatedBy   User   @relation(name: "initiatedConversations", fields: [initiatedById], references: [id])
+
+  receivedById String
+  receivedBy   User   @relation(name: "receivedConversations", fields: [receivedById], references: [id])
+
+  messages Message[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  sendById       String
+  sendBy         User         @relation(fields: [sendById], references: [id])
+
+  text String @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 enum ProjectPricingScheme {
@@ -88,4 +145,10 @@ enum ProjectExperience {
   BEGINNER
   INTERMEDIATE
   EXPERT
+}
+
+enum ProjectStatus {
+  OPEN
+  INPROGRESS
+  CLOSED
 }

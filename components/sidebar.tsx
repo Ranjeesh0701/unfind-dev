@@ -36,18 +36,22 @@ const Sidebar: React.FC<SidebarProps> = ({ user }) => {
       icon: AiFillProject,
       label: "Projects",
       spacing: "lg",
-      onClick: () => router.push("/project"),
+      onClick: () => router.push("/projects"),
       active: pathName.includes("/project"),
     },
     {
       icon: AiOutlineMessage,
       label: "Messages",
       spacing: "lg",
+      onClick: () => router.push("/messages"),
+      active: pathName.includes("/messages"),
     },
     {
       icon: AiOutlineUser,
       label: "Profile",
       spacing: "lg",
+      onClick: () => router.push(`/profile/${user?.id}`),
+      active: pathName.includes("/profile"),
     },
     {
       icon: AiOutlineSetting,

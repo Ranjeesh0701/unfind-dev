@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { BsBoxArrowUpRight } from "react-icons/bs";
-import * as z from "zod";
 import axios from "axios";
 
 import Heading from "@/components/heading";
@@ -27,30 +26,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { DatePickerWithPresets } from "@/components/ui/date-picker";
-
-const formSchema = z.object({
-  title: z.string().min(2, {
-    message: "Title is required.",
-  }),
-  description: z.string().min(1, {
-    message: "Description is required.",
-  }),
-  pricingScheme: z.enum(["HOURLY", "FIXED"]),
-  price: z.any(),
-  deadline: z.date().min(new Date(), {
-    message: "Deadline should be greater than current time.",
-  }),
-  experienceLevel: z.enum(["BEGINNER", "INTERMEDIATE", "EXPERT"]),
-});
+import { ProjectRequest, ProjectValidator } from "@/libs/validators/project";
+import { toast } from "sonner";
+import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from "next/navigation";
 
 const PostProjectForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const date = new Date();
   date.setHours(date.getHours() + 1);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<ProjectRequest>({
+    resolver: zodResolver(ProjectValidator),
     defaultValues: {
       title: "",
       description: "",
@@ -61,12 +50,12 @@ const PostProjectForm: React.FC = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: ProjectRequest) => {
     try {
       setIsLoading(true);
-      await axios.post("/api/project/new", values);
-      console.log(values);
+      const { data } = await axios.post("/api/socket/projects", values);
       form.reset();
+      router.push(`/project/${data.id}`);
     } catch (error) {
       // TODO: handle error creating project
     } finally {
@@ -76,7 +65,7 @@ const PostProjectForm: React.FC = () => {
 
   return (
     <>
-      <div className="w-[100%] sm:w-[60%] md:w-[70%] lg:w-[50%] px-4 sm:px-0">
+      <div className="w-[100%] sm:w-[60%] md:w-[70%] lg:w-[60%] px-4 sm:px-0">
         <div className="pt-4">
           <Heading title="Post a Project" />
         </div>
@@ -116,7 +105,7 @@ const PostProjectForm: React.FC = () => {
                       <FormMessage />
                     </div>
                     <FormControl>
-                      <Input
+                      <Textarea
                         {...field}
                         placeholder="Develop an application with Next js..."
                         className="focus-visible:outline-none focus-visible:ring-offset-0 focus-visible:ring-1"
@@ -226,8 +215,8 @@ const PostProjectForm: React.FC = () => {
           </Form>
         </div>
       </div>
-      <div className="hidden lg:block w-[30%]">
-        <div className="h-full px-6 pt-4 ">
+      <div className="lg:block w-[20%]">
+        <div className="h-full px-6 pt-4">
           <div className="flex flex-col gap-4">
             <div className="border rounded p-4 flex flex-col gap-4 items-center">
               <div className="border-2 border-dashed bg-gray-50 hover:bg-gray-100 w-full rounded-md px-4 py-4 flex gap-2 justify-center cursor-pointer">
@@ -236,7 +225,7 @@ const PostProjectForm: React.FC = () => {
                 </div>
                 <div>Preview</div>
               </div>
-              <div className="flex w-full gap-4">
+              <div className="flex flex-col w-full gap-4">
                 <Button
                   className="w-full"
                   variant="outline"

@@ -88,8 +88,8 @@ export const authOptions: AuthOptions = {
         picture: dbUser.image,
       };
     },
-    redirect() {
-      return "/";
+    redirect: () => {
+      return "/feed";
     },
   },
 };

@@ -1,7 +1,10 @@
-import Navbar from "@/components/navbar/navbar";
-import "./globals.css";
+import NotificationProvider from "@/components/providers/notification-provider";
+import { QueryProvider } from "@/components/providers/query-provider";
+import SocketProvider from "@/components/providers/socket-provider";
+import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        {children}
+        <SocketProvider>
+          <Toaster richColors />
+          <QueryProvider>
+            <NotificationProvider>{children}</NotificationProvider>
+          </QueryProvider>
+        </SocketProvider>
       </body>
     </html>
   );
