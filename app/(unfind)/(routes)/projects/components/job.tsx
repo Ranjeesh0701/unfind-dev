@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/libs/utils";
 import { ProjectWithUserDetails } from "@/types/project";
@@ -89,15 +89,9 @@ const Job: React.FC<JobProps> = ({ job }) => {
             </p>
           </div>
         </div>
-        <Link
-          className={cn(
-            buttonVariants({ size: "sm" }),
-            "w-full sm:w-auto mt-4 sm:mt-0"
-          )}
-          href={`/projects/${job.id}`}
-        >
-          View
-        </Link>
+        <Button asChild>
+          <Link href={`/projects/${job.id}`}>View</Link>
+        </Button>
       </div>
     </div>
   );

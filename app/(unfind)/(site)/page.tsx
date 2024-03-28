@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/libs/utils";
 import { ArrowRight, Mic, Search } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BsStarFill } from "react-icons/bs";
@@ -104,10 +103,10 @@ export default function Home() {
               </NavigationMenu>
             </div>
             <div className="flex gap-2">
-              <Button variant="outline" className="rounded-full px-6" asChild>
+              <Button variant="outline" className="px-6" asChild>
                 <Link href="/users/sign-in">Log in</Link>
               </Button>
-              <Button className="rounded-full px-6" asChild>
+              <Button className="px-6" asChild>
                 <Link href="/users/sign-up">Join us</Link>
               </Button>
             </div>

@@ -67,14 +67,14 @@ const PostProjectForm: React.FC = () => {
     <>
       <div className="w-[100%] sm:w-[60%] md:w-[70%] lg:w-[60%] px-4 sm:px-0">
         <div className="pt-4">
-          <Heading title="Post a Project" />
-        </div>
-        <div className="pt-4">
           <Form {...form}>
             <form
-              className="border rounded-lg px-8 py-8"
+              className="bg-white rounded-xl px-8 py-8"
               onSubmit={form.handleSubmit(onSubmit)}
             >
+              <div className="pb-4">
+                <Heading title="Post a Project" />
+              </div>
               <FormField
                 control={form.control}
                 name="title"
@@ -218,7 +218,7 @@ const PostProjectForm: React.FC = () => {
       <div className="lg:block w-[20%]">
         <div className="h-full px-6 pt-4">
           <div className="flex flex-col gap-4">
-            <div className="border rounded p-4 flex flex-col gap-4 items-center">
+            <div className="rounded-xl bg-white p-4 flex flex-col gap-4 items-center">
               <div className="border-2 border-dashed bg-gray-50 hover:bg-gray-100 w-full rounded-md px-4 py-4 flex gap-2 justify-center cursor-pointer">
                 <div>
                   <Icon icon={BsBoxArrowUpRight} />
