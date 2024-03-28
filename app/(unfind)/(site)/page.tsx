@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div>
       <div className="px-4 py-4">
-        <div className="bg-blue-200 min-h-screen rounded-lg flex flex-col">
+        <div className="bg-gray-200 min-h-screen rounded-lg flex flex-col">
           {/* Navbar */}
           <div className="relative flex items-center justify-between px-8 py-4">
             <Link href="/" className="text-2xl">
@@ -170,11 +170,11 @@ export default function Home() {
                 </div>
                 <div className="pt-4 flex">
                   <div className="flex flex-1 relative">
-                    <div className="rounded-full w-10 h-10 bg-gradient-to-br from-blue-200 to-blue-600"></div>
-                    <div className="absolute left-6 rounded-full w-10 h-10 bg-gradient-to-br from-blue-200 to-blue-600"></div>
-                    <div className="absolute left-12 rounded-full w-10 h-10 bg-gradient-to-br from-blue-200 to-blue-600"></div>
-                    <div className="absolute left-[4.5rem] rounded-full w-10 h-10 bg-gradient-to-br from-blue-200 to-blue-600"></div>
-                    <div className="absolute left-[6rem] rounded-full w-10 h-10 bg-gradient-to-br from-blue-200 to-blue-600"></div>
+                    <div className="rounded-full w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-600"></div>
+                    <div className="absolute left-6 rounded-full w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-600"></div>
+                    <div className="absolute left-12 rounded-full w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-600"></div>
+                    <div className="absolute left-[4.5rem] rounded-full w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-600"></div>
+                    <div className="absolute left-[6rem] rounded-full w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-600"></div>
                   </div>
                   <div>
                     <p className="font-bold">200+</p>
@@ -184,15 +184,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex-1 w-auto hidden lg:block my-auto">
-              <div className="max-w-lg mx-auto">
-                <Image
-                  className="ml-auto"
-                  src="/unfind-freelance-job-finder.png"
-                  width={1024}
-                  height={1024}
-                  alt="unfind-freelance-job-finder"
-                />
-              </div>
+              <div className="max-w-lg mx-auto"></div>
             </div>
           </div>
         </div>

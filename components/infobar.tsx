@@ -15,7 +15,7 @@ const Infobar: React.FC<InforbarProps> = ({ user }) => {
   return (
     <div className="h-full px-6 pt-4">
       <div className="flex flex-col gap-4">
-        <div className="border rounded p-4 flex gap-4 items-center">
+        <div className="rounded-xl bg-white p-4 flex gap-4 items-center">
           <div>
             <Avatar className="rounded">
               <AvatarImage src={user?.image as string | undefined} />

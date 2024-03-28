@@ -11,7 +11,7 @@ interface JobListProps {
 const JobList: React.FC<JobListProps> = ({ jobs }) => {
   return (
     <div>
-      <div className="w-full bg-gradient-to-tr from-gray-500 to-gray-800 px-6 py-8 my-4 rounded text-white">
+      <div className="w-full bg-gradient-to-tr from-gray-500 to-gray-800 px-6 py-8 my-4 rounded-xl text-white">
         <h3 className="text-xl font-bold">Discover Your Ideal Project</h3>
         <p className="text-sm pt-4">
           Search for Your Ideal Project in Web Development, Design, Writing, and

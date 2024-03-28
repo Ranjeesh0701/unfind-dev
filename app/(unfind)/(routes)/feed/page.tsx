@@ -25,7 +25,7 @@ const page: React.FC = async () => {
 
   return (
     <div>
-      <div className="flex flex-row">
+      <div className="flex flex-row bg-gray-500/10">
         <div className="hidden sm:block w-[30%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
           <Sidebar user={session?.user} />
         </div>

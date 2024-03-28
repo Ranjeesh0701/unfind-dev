@@ -20,7 +20,7 @@ interface JobProps {
 
 const Job: React.FC<JobProps> = ({ category, verified, location, job }) => {
   return (
-    <div className="border rounded-md p-2">
+    <div className="rounded-xl bg-white p-2">
       <div className="flex gap-4 h-full">
         <div className="flex flex-col overflow-hidden">
           <div className="bg-gray-100 h-full px-4 py-8 rounded-md flex flex-col">

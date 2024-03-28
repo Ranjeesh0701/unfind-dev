@@ -38,11 +38,11 @@ const Page = async () => {
   });
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row bg-gray-500/10">
       <div className="hidden sm:block w-[30%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
         <JobFilters />
       </div>
-      <div className="w-[100%] sm:w-[60%] md:w-[70%] lg:w-[60%] px-4 sm:px-0 pb-5">
+      <div className="w-[100%] sm:w-[60%] md:w-[70%] lg:w-[60%] px-4 sm:px-0 pb-5 ">
         <JobList jobs={jobs} />
       </div>
       <div className="hidden lg:block w-[20%] px-6 mt-4">

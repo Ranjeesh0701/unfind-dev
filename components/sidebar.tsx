@@ -30,28 +30,28 @@ const Sidebar: React.FC<SidebarProps> = ({ user }) => {
       label: "Feed",
       spacing: "lg",
       onClick: () => router.push("/feed"),
-      active: pathName.includes("/feed"),
+      active: pathName?.includes("/feed"),
     },
     {
       icon: AiFillProject,
       label: "Projects",
       spacing: "lg",
       onClick: () => router.push("/projects"),
-      active: pathName.includes("/project"),
+      active: pathName?.includes("/project"),
     },
     {
       icon: AiOutlineMessage,
       label: "Messages",
       spacing: "lg",
       onClick: () => router.push("/messages"),
-      active: pathName.includes("/messages"),
+      active: pathName?.includes("/messages"),
     },
     {
       icon: AiOutlineUser,
       label: "Profile",
       spacing: "lg",
       onClick: () => router.push(`/profile/${user?.id}`),
-      active: pathName.includes("/profile"),
+      active: pathName?.includes("/profile"),
     },
     {
       icon: AiOutlineSetting,
@@ -63,7 +63,7 @@ const Sidebar: React.FC<SidebarProps> = ({ user }) => {
   return (
     <div className="h-full px-6 pt-4">
       <div className="flex flex-col gap-4">
-        <div className="border rounded p-4 flex gap-4 items-center">
+        <div className="rounded-xl p-4 flex gap-4 items-center bg-white">
           <div>
             <Avatar>
               <AvatarImage src={user?.image as string | undefined} />
@@ -79,8 +79,8 @@ const Sidebar: React.FC<SidebarProps> = ({ user }) => {
             </p>
           </div>
         </div>
-        <div className="border rounded">
-          <div>
+        <div className="rounded-xl bg-white">
+          <div className="py-4">
             {sidebarItems.map((item) => (
               <ListItem
                 key={item.label}
