@@ -20,7 +20,7 @@ const OnboardingForm = () => {
             <OnboardingContext
               title={
                 <>
-                  Your Account is Ready. <br /> Let's Go!
+                  Your Account is Ready. <br /> Let&apos;s Go!
                 </>
               }
               description={
