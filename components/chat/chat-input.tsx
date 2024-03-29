@@ -18,6 +18,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { Input } from "../ui/input";
 
 interface ChatInputProps {
   conversation: ConversationWithMessageAndUser;
@@ -70,11 +71,11 @@ const ChatInput: React.FC<ChatInputProps> = ({ conversation, user }) => {
               render={({ field }) => (
                 <FormItem className="flex-1">
                   <FormControl>
-                    <Textarea
-                      {...field}
-                      className="w-full resize-none min-h-8 h-9 border-none bg-transparent focus-visible:ring-offset-0 outline-none focus-visible:ring-0"
-                      autoFocus
+                    <Input
+                      disabled={isLoading}
+                      className="py-6 bg-transparent border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-zinc-600 dark:text-zinc-200"
                       placeholder="Type a message here..."
+                      {...field}
                     />
                   </FormControl>
                 </FormItem>
