@@ -1,10 +1,13 @@
 "use client";
 
-import { Send, Settings, LogOut, User2 } from "lucide-react";
+import { LogOut, Send, Settings, User2 } from "lucide-react";
 import { User } from "next-auth";
 import { useRouter } from "next/navigation";
 
+import { ICONSIZE } from "@/shared/size";
+import { signOut } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,9 +18,6 @@ import {
 } from "../ui/dropdown-menu";
 import Icon from "../ui/icon";
 import Actions from "./actions";
-import { ICONSIZE } from "@/shared/size";
-import { signOut } from "next-auth/react";
-import { Button } from "../ui/button";
 
 interface MenuProps {
   user: User | undefined;

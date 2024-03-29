@@ -1,7 +1,8 @@
-import Search from "../ui/search";
-import { getAuthSession } from "@/libs/auth";
-import Menu from "./menu";
 import Link from "next/link";
+
+import { getAuthSession } from "@/libs/auth";
+import Search from "../ui/search";
+import Menu from "./menu";
 
 const Navbar: React.FC = async () => {
   const session = await getAuthSession();
