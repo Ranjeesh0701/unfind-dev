@@ -23,7 +23,7 @@ const Authentication: React.FC<AuthenticationProps> = ({ signin }) => {
   const authenticationText = signin ? "Sign in" : "Sign up";
 
   return (
-    <>
+    <div className="bg-gray-500/15 h-full">
       <div className="flex justify-between items-center px-4 py-4">
         <div className="flex items-center justify-between gap-10 px-8 py-4 mt-1">
           <div>
@@ -34,7 +34,7 @@ const Authentication: React.FC<AuthenticationProps> = ({ signin }) => {
         </div>
       </div>
       <div className="flex justify-center items-center py-6">
-        <div className="border rounded-md w-[80%] md:w-[50%] lg:w-[40%]">
+        <div className="rounded-xl bg-white w-[80%] md:w-[50%] lg:w-[40%]">
           <div className="flex flex-col px-6 py-10">
             <div className="pb-6">
               <Heading title="Welcome Back" />
@@ -119,7 +119,7 @@ const Authentication: React.FC<AuthenticationProps> = ({ signin }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
