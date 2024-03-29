@@ -83,7 +83,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ conversation, user }) => {
             />
           </div>
           <Button
-            className="rounded-full"
+            className="rounded-full w-12 h-12"
             type="submit"
             onClick={form.handleSubmit(onSubmit)}
             disabled={isLoading}
