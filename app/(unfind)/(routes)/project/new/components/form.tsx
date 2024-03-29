@@ -55,7 +55,6 @@ const PostProjectForm: React.FC = () => {
       setIsLoading(true);
       const { data } = await axios.post("/api/socket/projects", values);
       form.reset();
-      router.push(`/project/${data.id}`);
     } catch (error) {
       // TODO: handle error creating project
     } finally {
