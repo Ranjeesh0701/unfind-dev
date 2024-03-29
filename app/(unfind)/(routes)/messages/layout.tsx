@@ -28,7 +28,7 @@ const Layout: React.FC<LayoutProps> = async ({ children }) => {
   });
 
   return (
-    <div className="flex h-[calc(100vh-4rem)]">
+    <div className="flex h-[calc(100vh-4rem)] bg-white">
       <div className="flex-[0.28]">
         <ChatList conversations={conversations} user={session?.user} />
       </div>

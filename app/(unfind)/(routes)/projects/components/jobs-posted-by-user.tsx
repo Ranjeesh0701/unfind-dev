@@ -65,7 +65,7 @@ const JobsPostedByUser: React.FC<JobsPostedByUserProps> = ({ jobs }) => {
               </div>
             </div>
 
-            {jobs.length < index && <Separator />}
+            {index < jobs.length - 1 && <Separator />}
           </>
         ))}
       </div>

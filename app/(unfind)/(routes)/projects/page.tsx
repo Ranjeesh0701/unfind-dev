@@ -34,11 +34,11 @@ const Page = async () => {
     orderBy: {
       createdAt: "desc",
     },
-    take: 4,
+    take: 3,
   });
 
   return (
-    <div className="flex flex-row bg-gray-500/10">
+    <div className="flex flex-row">
       <div className="hidden sm:block w-[30%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
         <JobFilters />
       </div>
