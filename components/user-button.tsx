@@ -35,7 +35,7 @@ const UserButton = () => {
   }
 
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger className="focus-visible:outline-none">
         <Avatar>
           <AvatarImage src={user.image as string | undefined} />
@@ -44,7 +44,11 @@ const UserButton = () => {
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent
+        className="rounded-xl shadow-2xl border-0"
+        align="end"
+        sideOffset={10}
+      >
         <DropdownMenuLabel>
           <div className="flex items-center gap-2 max-w-[190px]">
             <Avatar className="rounded">
