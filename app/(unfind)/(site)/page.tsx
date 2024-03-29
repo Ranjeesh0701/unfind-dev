@@ -11,6 +11,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import UserButton from "@/components/user-button";
 import { cn } from "@/libs/utils";
 import { ArrowRight, Mic, Search } from "lucide-react";
 import Link from "next/link";
@@ -102,14 +103,7 @@ export default function Home() {
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
-            <div className="flex gap-2">
-              <Button variant="outline" className="px-6" asChild>
-                <Link href="/users/sign-in">Log in</Link>
-              </Button>
-              <Button className="px-6" asChild>
-                <Link href="/users/sign-up">Join us</Link>
-              </Button>
-            </div>
+            <UserButton />
           </div>
           {/* Home page */}
           <div className="flex-1 flex gap-10 px-8 h-full">
