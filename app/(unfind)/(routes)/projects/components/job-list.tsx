@@ -10,14 +10,14 @@ interface JobListProps {
 
 const JobList: React.FC<JobListProps> = ({ jobs }) => {
   return (
-    <div>
-      <div className="w-full bg-gradient-to-tr from-gray-500 to-gray-800 px-6 py-8 my-4 rounded-xl text-white">
+    <div className="w-full py-4">
+      <div className="w-full bg-gradient-to-tr from-gray-500 to-gray-800 px-6 py-8 mb-4 rounded-xl text-white">
         <h3 className="text-xl font-bold">Discover Your Ideal Project</h3>
         <p className="text-sm pt-4">
           Search for Your Ideal Project in Web Development, Design, Writing, and
           More!
         </p>
-        <div className="bg-white px-1 py-1 mt-4 rounded flex items-center">
+        <div className="bg-white px-1 py-1 mt-4 rounded-full flex items-center">
           <Search className="w-5 h-5 ml-4 text-black" />
           <Input
             placeholder="Search project"
