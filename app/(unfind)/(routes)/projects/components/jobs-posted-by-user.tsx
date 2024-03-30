@@ -26,7 +26,10 @@ const JobsPostedByUser: React.FC<JobsPostedByUserProps> = ({ jobs }) => {
       <div className="rounded-xl bg-white px-4 py-2">
         <div className="flex items-center justify-between">
           <p className="font-bold py-2">Projects posted by you</p>
-          <ArrowRight className="h-5 w-5 cursor-pointer" />
+          <ArrowRight
+            className="h-5 w-5 cursor-pointer"
+            onClick={() => router.push("/my-projects")}
+          />
         </div>
 
         {jobs.map((job, index) => (

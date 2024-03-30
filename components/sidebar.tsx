@@ -15,6 +15,7 @@ import { ICONSIZE } from "@/shared/size";
 import ListItem from "./list-item";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Icon from "./ui/icon";
+import { Button } from "./ui/button";
 
 interface SidebarProps {
   user?: User;
@@ -63,21 +64,24 @@ const Sidebar: React.FC<SidebarProps> = ({ user }) => {
   return (
     <div className="h-full px-6 pt-4">
       <div className="flex flex-col gap-4">
-        <div className="rounded-xl p-4 flex gap-4 items-center bg-white">
+        <div className="rounded-xl p-4 flex flex-col gap-4 items-center bg-white">
           <div>
-            <Avatar>
+            <Avatar className="w-24 h-24">
               <AvatarImage src={user?.image as string | undefined} />
               <AvatarFallback>
                 <Icon icon={User2} size={ICONSIZE.sm} />
               </AvatarFallback>
             </Avatar>
           </div>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden text-center">
             <div className="text-lg truncate">{user?.name}</div>
             <p className="text-xs truncate text-gray-500 break-all">
               {user?.email}
             </p>
           </div>
+          <Button className="w-full" variant="secondary">
+            Edit profile
+          </Button>
         </div>
         <div className="rounded-xl bg-white">
           <div className="py-4">
