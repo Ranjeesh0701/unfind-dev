@@ -1,8 +1,9 @@
-import db from "@/libs/db";
-import JobList from "../projects/components/job-list";
-import { getAuthSession } from "@/libs/auth";
 import { redirect } from "next/navigation";
+
+import { getAuthSession } from "@/libs/auth";
+import db from "@/libs/db";
 import JobFilters from "../projects/components/job-filters";
+import JobList from "../projects/components/job-list";
 
 const Page = async () => {
   const session = await getAuthSession();
@@ -24,8 +25,13 @@ const Page = async () => {
   });
 
   return (
-    <div className="flex max-w-4xl mx-auto">
-      <JobList jobs={jobs} />
+    <div className="flex flex-row max-w-7xl mx-auto py-4 px-4 gap-4">
+      <div className="hidden lg:block flex-[0.3]">
+        <JobFilters />
+      </div>
+      <div className="flex-1">
+        <JobList jobs={jobs} />
+      </div>
     </div>
   );
 };

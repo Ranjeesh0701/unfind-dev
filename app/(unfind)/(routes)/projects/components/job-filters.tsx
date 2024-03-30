@@ -3,9 +3,9 @@ import { Slider } from "@/components/ui/slider";
 
 const JobFilters = () => {
   return (
-    <div className="bg-white rounded-xl mx-6 mt-4 px-4 py-6">
+    <div className="bg-white rounded-xl px-4 py-6">
       <div className="flex justify-between items-center">
-        <p className="font-bold text-md">Filter</p>
+        <p className="font-bold text-lg">Filter</p>
         <p className="font-semibold text-blue-600 text-xs cursor-pointer">
           Clear all
         </p>

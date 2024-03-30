@@ -38,25 +38,12 @@ const Page = async () => {
   });
 
   return (
-    <div className="flex flex-row">
-      <div className="hidden sm:block w-[30%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
+    <div className="flex flex-row max-w-7xl mx-auto py-4 px-4 gap-4">
+      <div className="hidden lg:block flex-[0.3]">
         <JobFilters />
       </div>
-      <div className="w-[100%] sm:w-[60%] md:w-[70%] lg:w-[60%] px-4 sm:px-0 pb-5 ">
+      <div className="flex-1">
         <JobList jobs={jobs} />
-      </div>
-      <div className="hidden lg:block w-[20%] px-6 mt-4">
-        <div className="mb-4">
-          <Button className="w-full" asChild>
-            <Link href="/project/new">Post project</Link>
-          </Button>
-        </div>
-
-        {jobsPostedByCurrentUser.length > 0 ? (
-          <JobsPostedByUser jobs={jobsPostedByCurrentUser} />
-        ) : (
-          <SuggestedJobs />
-        )}
       </div>
     </div>
   );
