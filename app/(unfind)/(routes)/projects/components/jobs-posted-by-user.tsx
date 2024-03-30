@@ -55,7 +55,7 @@ const JobsPostedByUser: React.FC<JobsPostedByUserProps> = ({ jobs }) => {
                 </DropdownMenu>
               </div>
               <div>
-                <p className="text-sm text-gray-500 pt-3 pb-2 line-clamp-2">
+                <p className="text-sm text-gray-500 pt-3 line-clamp-2">
                   {job.description}
                 </p>
               </div>

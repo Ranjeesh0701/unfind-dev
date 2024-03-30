@@ -66,6 +66,7 @@ const ApplyProjectForm: React.FC<ApplyProjectFormProps> = ({ projectId }) => {
                     {...field}
                     placeholder="What makes you best for this project?"
                     rows={4}
+                    disabled={isLoading}
                   />
                 </FormControl>
               </FormItem>
