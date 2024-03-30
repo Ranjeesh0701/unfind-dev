@@ -37,34 +37,6 @@ export const POST = async (req: Request) => {
       },
     });
 
-    let conversation = await db.conversation.findFirst({
-      where: {
-        OR: [
-          { initiatedById: session.user.id, receivedById: project.userId },
-          { receivedById: session.user.id, initiatedById: project.userId },
-        ],
-      },
-    });
-
-    if (!conversation) {
-      conversation = await db.conversation.create({
-        data: {
-          initiatedById: session.user.id,
-          receivedById: project.userId,
-        },
-      });
-    }
-
-    if (conversation) {
-      await db.message.create({
-        data: {
-          conversationId: conversation.id,
-          text,
-          sendById: session.user.id,
-        },
-      });
-    }
-
     return new Response(JSON.stringify(proposal));
   } catch (error) {
     if (error instanceof z.ZodError) {
