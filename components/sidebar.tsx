@@ -66,7 +66,7 @@ const Sidebar: React.FC<SidebarProps> = ({ user }) => {
       <div className="flex flex-col gap-4">
         <div className="rounded-xl p-4 flex flex-col gap-4 items-center bg-white">
           <div>
-            <Avatar className="w-24 h-24">
+            <Avatar className="w-20 h-20">
               <AvatarImage src={user?.image as string | undefined} />
               <AvatarFallback>
                 <Icon icon={User2} size={ICONSIZE.sm} />
