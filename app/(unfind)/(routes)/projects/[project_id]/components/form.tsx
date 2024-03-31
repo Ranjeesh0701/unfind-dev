@@ -15,8 +15,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { ProposalRequest, ProposalValidator } from "@/libs/validators/proposal";
 import axios from "axios";
 import { Send } from "lucide-react";
-import { useState } from "react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { toast } from "sonner";
 
 interface ApplyProjectFormProps {
@@ -73,7 +74,11 @@ const ApplyProjectForm: React.FC<ApplyProjectFormProps> = ({ projectId }) => {
             )}
           />
           <div className="mt-3 flex justify-end">
-            <Button type="submit" disabled={isLoading}>
+            <Button
+              type="submit"
+              onClick={() => onSubmit(form.getValues())}
+              disabled={isLoading}
+            >
               Send proposal <Send className="w-4 h-4 ml-1.5" />
             </Button>
           </div>

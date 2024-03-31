@@ -103,6 +103,8 @@ model Proposal {
   userId    String
   projectId String
 
+  status ProposalStatus @default(OPEN)
+
   user    User    @relation(fields: [userId], references: [id])
   project Project @relation(fields: [projectId], references: [id])
 
@@ -151,4 +153,10 @@ enum ProjectStatus {
   OPEN
   INPROGRESS
   CLOSED
+}
+
+enum ProposalStatus {
+  OPEN
+  ACCEPTED
+  REJECTED
 }

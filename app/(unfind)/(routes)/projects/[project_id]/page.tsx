@@ -1,14 +1,13 @@
-import { Clock, Edit, MailCheck, Map } from "lucide-react";
+import { Clock, Edit, Locate, MailCheck, Map } from "lucide-react";
 
 import Heading from "@/components/heading";
-import Infobar from "@/components/infobar";
 import NotFound from "@/components/not-found";
-import Sidebar from "@/components/sidebar";
 import StatusBar from "@/components/status-bar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getAuthSession } from "@/libs/auth";
 import db from "@/libs/db";
+import Link from "next/link";
 import ApplyProjectForm from "./components/form";
 
 interface PageProps {
@@ -50,14 +49,10 @@ const page: React.FC<PageProps> = async ({ params }) => {
   }
 
   return (
-    <div className="flex">
-      <div className="hidden sm:block w-[30%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
-        <Sidebar user={session?.user} />
-      </div>
-
+    <div className="flex flex-row max-w-7xl mx-auto py-4 px-4 gap-4">
       {/* Project details */}
-      <div className="w-[100%] sm:w-[60%] md:w-[70%] lg:w-[60%] px-4 sm:px-0">
-        <div className="pt-4 pb-4">
+      <div className="px-4 sm:px-0 flex-1">
+        <div className="pb-4">
           <div className="border-b rounded-t-xl bg-white p-4 flex flex-col gap-4">
             {/* Title */}
             <div className="flex flex-wrap justify-between gap-4">
@@ -107,9 +102,14 @@ const page: React.FC<PageProps> = async ({ params }) => {
               <div className="flex gap-6 flex-wrap">
                 <div className="flex gap-2">
                   <MailCheck />
-                  <p className="text-sm">
-                    {project.proposals.length || 0} Proposals
-                  </p>
+                  <Link
+                    href={`/projects/${project.id}/proposals`}
+                    className="text-blue-600 underline"
+                  >
+                    <p className="text-sm">
+                      {project.proposals.length || 0} Proposals
+                    </p>
+                  </Link>
                 </div>
                 <div className="flex gap-2">
                   <Map />
@@ -132,8 +132,20 @@ const page: React.FC<PageProps> = async ({ params }) => {
           ) : null}
         </div>
       </div>
-      <div className="w-[20%] hidden sm:block">
-        <Infobar />
+      <div className="hidden lg:block flex-[0.3]">
+        <div className="bg-white rounded-xl px-4 py-4">
+          <p className="font-bold text-lg">About the client</p>
+          <div className="pt-4 flex flex-col gap-2">
+            <div className="flex gap-2">
+              <Locate />
+              <p>United states</p>
+            </div>
+            <div className="flex gap-2">
+              <Clock />
+              <p>Member since Mar 29, 2023</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

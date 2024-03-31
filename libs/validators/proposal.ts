@@ -5,6 +5,8 @@ export const ProposalValidator = z.object({
     message: "Proposal is required.",
   }),
   projectId: z.string(),
+  userId: z.string().optional(),
+  status: z.enum(["OPEN", "ACCEPTED", "REJECTED"]).default("OPEN"),
 });
 
 export type ProposalRequest = z.infer<typeof ProposalValidator>;
