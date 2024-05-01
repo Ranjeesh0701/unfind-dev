@@ -1,13 +1,13 @@
 import NotFound from "@/components/not-found";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ProjectWithUserDetails } from "@/types/project";
+import { ProjectWithUserDetailsAndProposals } from "@/types/project";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import Job from "./job";
 
 interface JobListProps {
-  jobs: ProjectWithUserDetails[];
+  jobs: ProjectWithUserDetailsAndProposals[];
 }
 
 const JobList: React.FC<JobListProps> = ({ jobs }) => {

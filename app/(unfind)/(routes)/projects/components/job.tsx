@@ -1,9 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/libs/utils";
-import { ProjectWithUserDetails } from "@/types/project";
+import { ProjectWithUserDetailsAndProposals } from "@/types/project";
 import {
   Clock,
   FolderOpenDot,
@@ -16,7 +15,7 @@ import moment from "moment";
 import Link from "next/link";
 
 interface JobProps {
-  job: ProjectWithUserDetails;
+  job: ProjectWithUserDetailsAndProposals;
 }
 
 const Job: React.FC<JobProps> = ({ job }) => {
@@ -82,7 +81,7 @@ const Job: React.FC<JobProps> = ({ job }) => {
           <div className="flex items-center gap-2">
             <Users className="w-5 h-5 text-blue-500" />
             <p className="font-bold">
-              0
+              {job.proposals?.length}
               <span className="font-normal text-sm ml-1 text-gray-500">
                 proposals
               </span>

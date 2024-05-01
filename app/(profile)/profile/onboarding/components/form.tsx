@@ -118,20 +118,6 @@ const OnboardingForm = () => {
 
   const onSubmit = () => {};
 
-  useEffect(() => {
-    const transitionToNextStepOnEnter = (event: KeyboardEvent) => {
-      if (event.key === "Enter") {
-        nextStep();
-      }
-    };
-
-    document.addEventListener("keypress", transitionToNextStepOnEnter);
-
-    return () => {
-      document.removeEventListener("keypress", transitionToNextStepOnEnter);
-    };
-  }, [currentStep]);
-
   const nextStep = async () => {
     const output = await trigger(steps[currentStep].fields || []);
 
@@ -153,6 +139,20 @@ const OnboardingForm = () => {
       setCurrentStep((currentStep) => currentStep - 1);
     }
   };
+
+  useEffect(() => {
+    const transitionToNextStepOnEnter = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        nextStep();
+      }
+    };
+
+    document.addEventListener("keypress", transitionToNextStepOnEnter);
+
+    return () => {
+      document.removeEventListener("keypress", transitionToNextStepOnEnter);
+    };
+  }, [currentStep, nextStep]);
 
   return (
     <Form {...form}>

@@ -1,17 +1,16 @@
 "use client";
 
 import { useChatQuery } from "@/hooks/use-chat-query";
+import { useChatScroll } from "@/hooks/use-chat-scroll";
+import { useChatSocket } from "@/hooks/use-chat-socket";
 import {
   ConversationWithMessageAndUser,
   MessageWithSender,
 } from "@/types/chat";
 import { Loader2 } from "lucide-react";
 import { User } from "next-auth";
-import { ElementRef, Fragment, useEffect, useRef } from "react";
-import { ScrollArea } from "../ui/scroll-area";
+import { ElementRef, Fragment, useRef } from "react";
 import ChatMessage from "./chat-message";
-import { useChatScroll } from "@/hooks/use-chat-scroll";
-import { useChatSocket } from "@/hooks/use-chat-socket";
 
 interface ChatContainerProps {
   conversation: ConversationWithMessageAndUser;
@@ -86,6 +85,7 @@ const ChatContainer: React.FC<ChatContainerProps> = ({
                 key={message.id}
                 sendBy={message.sendBy}
                 message={message}
+                proposal={message.proposal}
                 isCurrentUser={message.sendById === user?.id}
                 isNextMessageSamePerson={false}
               />

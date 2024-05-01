@@ -1,4 +1,4 @@
-import { Conversation, Message, User } from "@prisma/client";
+import { Conversation, Message, Project, Proposal, User } from "@prisma/client";
 
 export type ConversationWithMessageAndUser = ConversationWithMessageSender & {
   initiatedBy: User;
@@ -15,4 +15,7 @@ export type ConversationWithMessage = Conversation & {
 
 export type MessageWithSender = Message & {
   sendBy: User;
+  proposal?: Proposal & {
+    project: Project;
+  };
 };

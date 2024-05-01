@@ -23,6 +23,7 @@ const Page: React.FC<PageProps> = async ({ params }) => {
       messages: {
         include: {
           sendBy: true,
+          proposal: true,
         },
       },
       initiatedBy: true,

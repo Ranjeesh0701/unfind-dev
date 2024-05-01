@@ -35,6 +35,11 @@ export async function GET(req: Request) {
         },
         include: {
           sendBy: true,
+          proposal: {
+            include: {
+              project: true,
+            },
+          },
         },
         orderBy: {
           createdAt: "desc",
@@ -48,6 +53,11 @@ export async function GET(req: Request) {
         },
         include: {
           sendBy: true,
+          proposal: {
+            include: {
+              project: true,
+            },
+          },
         },
         orderBy: {
           createdAt: "desc",

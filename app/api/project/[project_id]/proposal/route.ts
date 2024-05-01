@@ -82,11 +82,12 @@ export const PATCH = async (req: Request, { params }: { params: IParams }) => {
       }
 
       if (conversation) {
-        await db.message.create({
+        const message = await db.message.create({
           data: {
             conversationId: conversation.id,
             text: proposal.text,
             sendById: proposal.userId,
+            proposalProjectId: project.id,
           },
         });
       }
@@ -98,7 +99,6 @@ export const PATCH = async (req: Request, { params }: { params: IParams }) => {
 
     return new Response(JSON.stringify(proposal));
   } catch (error) {
-    console.log(error);
     if (error instanceof z.ZodError) {
       return new Response("Invalid request data passed.", { status: 422 });
     }

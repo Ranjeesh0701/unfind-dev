@@ -296,7 +296,6 @@ const ProjectStepForm = () => {
   const { trigger } = form;
 
   const onSubmit = async (values: ProjectRequest) => {
-    console.log(values);
     try {
       setIsLoading(true);
       const { data } = await axios.post("/api/socket/projects", values);
@@ -307,20 +306,6 @@ const ProjectStepForm = () => {
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    const transitionToNextStepOnEnter = (event: KeyboardEvent) => {
-      if (event.key === "Enter") {
-        nextStep();
-      }
-    };
-
-    document.addEventListener("keypress", transitionToNextStepOnEnter);
-
-    return () => {
-      document.removeEventListener("keypress", transitionToNextStepOnEnter);
-    };
-  }, [currentStep]);
 
   const nextStep = async () => {
     const output = await trigger(steps[currentStep].fields || []);
@@ -343,6 +328,20 @@ const ProjectStepForm = () => {
       setCurrentStep((currentStep) => currentStep - 1);
     }
   };
+
+  useEffect(() => {
+    const transitionToNextStepOnEnter = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        nextStep();
+      }
+    };
+
+    document.addEventListener("keypress", transitionToNextStepOnEnter);
+
+    return () => {
+      document.removeEventListener("keypress", transitionToNextStepOnEnter);
+    };
+  }, [currentStep, nextStep]);
 
   return (
     <Form {...form}>

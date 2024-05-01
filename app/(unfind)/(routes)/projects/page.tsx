@@ -14,6 +14,7 @@ const Page = async () => {
     },
     include: {
       user: true,
+      proposals: true,
     },
     orderBy: {
       createdAt: "desc",
