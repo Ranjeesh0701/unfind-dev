@@ -13,7 +13,7 @@ interface InforbarProps {
 
 const Infobar: React.FC<InforbarProps> = ({ user }) => {
   return (
-    <div className="h-full">
+    <div className="h-full px-6 py-4">
       <div className="flex flex-col gap-4">
         <div className="rounded-xl bg-white p-4 flex gap-4 items-center">
           <div>

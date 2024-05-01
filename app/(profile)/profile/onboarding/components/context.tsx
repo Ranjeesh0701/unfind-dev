@@ -8,6 +8,7 @@ interface OnboardingContextProps {
   description?: string | React.JSX.Element;
   buttonLabel: string;
   action?: () => void;
+  disabled?: boolean;
 }
 
 const OnboardingContext: React.FC<OnboardingContextProps> = ({
@@ -16,6 +17,7 @@ const OnboardingContext: React.FC<OnboardingContextProps> = ({
   description,
   buttonLabel,
   action,
+  disabled,
 }) => {
   return (
     <>
@@ -23,7 +25,7 @@ const OnboardingContext: React.FC<OnboardingContextProps> = ({
       <p className="text-lg py-6 leading-relaxed">{description}</p>
       <div>{children}</div>
       <div>
-        <Button size="lg" onClick={action}>
+        <Button size="lg" onClick={action} disabled={disabled}>
           {buttonLabel}
         </Button>
         <p className="flex gap-2 pt-2 items-center text-sm text-gray-500">

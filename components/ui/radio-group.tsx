@@ -1,8 +1,8 @@
 "use client";
 
-import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import { Circle } from "lucide-react";
+import { Check } from "lucide-react";
+import * as React from "react";
 
 import { cn } from "@/libs/utils";
 
@@ -43,12 +43,13 @@ const RadioGroupItem = React.forwardRef<
       )}
       <RadioGroupPrimitive.Indicator
         className={cn("flex items-center justify-center", {
-          "absolute right-2 top-2 bg-gray-900 p-1 rounded-full": props.label,
+          "absolute right-2 top-2 bg-gray-900 w-4 h-4 rounded-full":
+            props.label,
         })}
       >
-        <Circle
-          className={cn("h-2.5 w-2.5 fill-current text-current", {
-            "text-gray-200 h-2 w-2": props.label,
+        <Check
+          className={cn("h-2.5 w-2.5", {
+            "text-gray-200 h-2.5 w-2.5": props.label,
           })}
         />
       </RadioGroupPrimitive.Indicator>

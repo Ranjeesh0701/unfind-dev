@@ -66,8 +66,8 @@ export const PATCH = async (req: Request, { params }: { params: IParams }) => {
       let conversation = await db.conversation.findFirst({
         where: {
           OR: [
-            { initiatedById: session.user.id, receivedById: project.userId },
-            { receivedById: session.user.id, initiatedById: project.userId },
+            { initiatedById: session.user.id, receivedById: proposal.userId },
+            { receivedById: session.user.id, initiatedById: proposal.userId },
           ],
         },
       });

@@ -23,7 +23,7 @@ const Job: React.FC<JobProps> = ({ job }) => {
   const postedAt = moment(job.createdAt).format("Do MMM YY");
 
   return (
-    <div className="flex flex-col bg-white w-full px-6 py-6 rounded-xl">
+    <div className="flex flex-col bg-white w-full px-6 py-6 rounded border">
       <div className="w-full flex justify-between items-center">
         <div className="flex items-center gap-4">
           <Avatar>
@@ -65,7 +65,7 @@ const Job: React.FC<JobProps> = ({ job }) => {
         </p>
       </div>
       <div className="py-4">
-        <p className="text-sm text-gray-500">{job.description}</p>
+        <p className="text-sm text-gray-500 line-clamp-1">{job.description}</p>
       </div>
       <Separator />
       <div className="pt-4 flex flex-col sm:flex-row items-center justify-between">

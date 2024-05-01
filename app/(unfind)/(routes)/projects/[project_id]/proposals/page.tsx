@@ -1,8 +1,17 @@
 import NotFound from "@/components/not-found";
 import StatusBar from "@/components/status-bar";
+import { Button } from "@/components/ui/button";
 import { getAuthSession } from "@/libs/auth";
 import db from "@/libs/db";
+import {
+  ArrowLeft,
+  Bookmark,
+  ExternalLink,
+  Heart,
+  MoreHorizontal,
+} from "lucide-react";
 import Proposal from "./components/proposal";
+import Link from "next/link";
 
 type PageProps = {
   params: {
@@ -43,33 +52,7 @@ const Page = async ({ params }: PageProps) => {
   return (
     <div className="flex flex-row max-w-7xl mx-auto py-4 px-4 gap-4">
       <div className="w-full">
-        <div className="bg-white w-full rounded-xl px-4 py-4 flex flex-col gap-4">
-          <div className="flex flex-wrap justify-between gap-4">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-800">
-                {project.title}
-              </h3>
-            </div>
-            <div>
-              <p className="text-xl sm:text-3xl font-bold text-gray-800">
-                $ {project.price}
-              </p>
-            </div>
-          </div>
-          {/* Status */}
-          <div className="flex">
-            <div className="flex flex-wrap gap-2 items-center">
-              <StatusBar status={project.status} />
-              <p className="text-sm text-gray-500">
-                Posted at {project.createdAt.toDateString()}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h3 className="py-4 text-xl font-bold">Proposals</h3>
-        </div>
-        <div>
+        <div className="grid grid-cols-4 gap-4">
           {project.proposals.length > 0 &&
             project.proposals.map((proposal, index) => (
               <Proposal
@@ -79,6 +62,9 @@ const Page = async ({ params }: PageProps) => {
               />
             ))}
         </div>
+        {project.proposals.length === 0 && (
+          <NotFound description="No proposals yet." />
+        )}
       </div>
     </div>
   );

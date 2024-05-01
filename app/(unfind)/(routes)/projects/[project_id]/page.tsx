@@ -49,33 +49,11 @@ const page: React.FC<PageProps> = async ({ params }) => {
   }
 
   return (
-    <div className="flex flex-row max-w-7xl mx-auto py-4 px-4 gap-4">
+    <div className="flex flex-row max-w-7xl mx-auto gap-4">
       {/* Project details */}
       <div className="px-4 sm:px-0 flex-1">
-        <div className="pb-4">
-          <div className="border-b rounded-t-xl bg-white p-4 flex flex-col gap-4">
-            {/* Title */}
-            <div className="flex flex-wrap justify-between gap-4">
-              <div>
-                <h3 className="text-3xl font-bold text-gray-800">
-                  {project.title}
-                </h3>
-              </div>
-              <div>
-                <p className="text-xl sm:text-3xl font-bold text-gray-800">
-                  ${project.price} USD
-                </p>
-              </div>
-            </div>
-            {/* Status */}
-            <div className="flex">
-              <div className="flex flex-wrap gap-2 items-center">
-                <StatusBar status={project.status} />
-                <p className="text-sm text-gray-500">
-                  Posted at {project.createdAt.toDateString()}
-                </p>
-              </div>
-            </div>
+        <div className="pb-4 flex flex-col gap-4">
+          <div className="rounded-t flex flex-col gap-4">
             {/* Description */}
             <div className="flex">
               <p>{project.description}</p>
@@ -125,7 +103,7 @@ const page: React.FC<PageProps> = async ({ params }) => {
 
           {/* Send a proposal for project */}
           {!isSameUser && !isAlreadyProposed ? (
-            <div className="border-t rounded-b-xl bg-white p-4 flex flex-col gap-4">
+            <div className="border-t rounded-b bg-white p-4 flex flex-col gap-4">
               <Heading title="Write a proposal" />
               <ApplyProjectForm projectId={project_id} />
             </div>
@@ -133,7 +111,7 @@ const page: React.FC<PageProps> = async ({ params }) => {
         </div>
       </div>
       <div className="hidden lg:block flex-[0.3]">
-        <div className="bg-white rounded-xl px-4 py-4">
+        <div className="bg-white rounded border px-4 py-4">
           <p className="font-bold text-lg">About the client</p>
           <div className="pt-4 flex flex-col gap-2">
             <div className="flex gap-2">

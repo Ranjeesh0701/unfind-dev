@@ -4,7 +4,7 @@ import OnboardingForm from "./components/form";
 const Page = () => {
   return (
     <div className="h-screen xl:flex">
-      <div className="flex-[0.4] bg-blue-200 px-4 sm:px-24 xl:px-12 py-8 pt-9">
+      <div className="flex-[0.4] bg-blue-200 px-8 py-4">
         <Link href="/" className="text-2xl">
           Unfind
         </Link>
