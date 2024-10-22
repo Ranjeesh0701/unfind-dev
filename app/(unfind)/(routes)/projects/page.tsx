@@ -1,10 +1,10 @@
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
 import JobFilters from "./components/job-filters";
 import JobList from "./components/job-list";
 
 const Page = async () => {
-  const session = await getAuthSession();
+  const session = await auth();
 
   const jobs = await db.project.findMany({
     where: {

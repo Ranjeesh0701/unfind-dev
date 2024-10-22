@@ -3,7 +3,7 @@ import NotificationProvider from "@/components/providers/notification-provider";
 import { QueryProvider } from "@/components/providers/query-provider";
 import SocketProvider from "@/components/providers/socket-provider";
 import { Toaster } from "@/components/ui/sonner";
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -20,7 +20,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getAuthSession();
+  const session = await auth();
 
   return (
     <html lang="en">

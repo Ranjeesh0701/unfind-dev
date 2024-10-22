@@ -1,10 +1,9 @@
 import { NextApiRequest } from "next";
 
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
 import { ProjectValidator } from "@/libs/validators/project";
 import { NextApiResponseServerIo } from "@/types/socket";
-import { authOptions, getAuthSession } from "@/libs/auth";
-import { getServerSession } from "next-auth";
 
 export default async function handler(
   req: NextApiRequest,
@@ -27,7 +26,7 @@ export default async function handler(
       price,
     } = ProjectValidator.parse(body);
 
-    const session = await getServerSession(req, res, authOptions);
+    const session = await auth(req, res);
 
     if (!session?.user) {
       return res.status(401).json({ message: "Unauthorized" });

@@ -2,10 +2,9 @@ import { Clock, Edit, Locate, MailCheck, Map } from "lucide-react";
 
 import Heading from "@/components/heading";
 import NotFound from "@/components/not-found";
-import StatusBar from "@/components/status-bar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
 import Link from "next/link";
 import ApplyProjectForm from "./components/form";
@@ -19,7 +18,7 @@ interface PageProps {
 const page: React.FC<PageProps> = async ({ params }) => {
   const { project_id } = params;
 
-  const session = await getAuthSession();
+  const session = await auth();
 
   const project = await db.project.findFirst({
     where: {

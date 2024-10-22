@@ -1,12 +1,12 @@
 import * as z from "zod";
 
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
 import { ProposalValidator } from "@/libs/validators/proposal";
 
 export const POST = async (req: Request) => {
   try {
-    const session = await getAuthSession();
+    const session = await auth();
 
     if (!session?.user) {
       return new Response("Unauthorized", { status: 401 });

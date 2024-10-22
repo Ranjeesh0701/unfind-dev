@@ -1,12 +1,12 @@
 import Infobar from "@/components/infobar";
 import Sidebar from "@/components/sidebar";
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import prisma from "@/libs/db";
 import Popular from "./components/popular";
 import RecentJobs from "./components/recent-jobs";
 
 const page: React.FC = async () => {
-  const session = await getAuthSession();
+  const session = await auth();
 
   const recentJobs = await prisma.project.findMany({
     where: {

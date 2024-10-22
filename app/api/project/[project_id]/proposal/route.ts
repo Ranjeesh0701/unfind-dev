@@ -1,6 +1,6 @@
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
-import { ProposalRequest, ProposalValidator } from "@/libs/validators/proposal";
+import { ProposalValidator } from "@/libs/validators/proposal";
 import { z } from "zod";
 
 interface IParams {
@@ -9,7 +9,7 @@ interface IParams {
 
 export const PATCH = async (req: Request, { params }: { params: IParams }) => {
   try {
-    const session = await getAuthSession();
+    const session = await auth();
 
     if (!session?.user) {
       return new Response("Unauthorized", { status: 401 });

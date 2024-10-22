@@ -1,8 +1,8 @@
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import ProjectStepForm from "./components/step-form";
 
 const page: React.FC = async () => {
-  const session = await getAuthSession();
+  const session = await auth();
 
   return (
     <div className="flex">

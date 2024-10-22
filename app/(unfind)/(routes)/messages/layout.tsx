@@ -1,5 +1,5 @@
 import ChatList from "@/components/chat/chat-list";
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
 
 interface LayoutProps {
@@ -7,7 +7,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = async ({ children }) => {
-  const session = await getAuthSession();
+  const session = await auth();
 
   const conversations = await db.conversation.findMany({
     where: {

@@ -1,7 +1,7 @@
 import ChatContainer from "@/components/chat/chat-container";
 import ChatHeader from "@/components/chat/chat-header";
 import ChatInput from "@/components/chat/chat-input";
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
 import { Lock, MessageSquareDashed } from "lucide-react";
 
@@ -12,7 +12,7 @@ interface PageProps {
 }
 
 const Page: React.FC<PageProps> = async ({ params }) => {
-  const session = await getAuthSession();
+  const session = await auth();
   const { messageId } = params;
 
   const conversation = await db.conversation.findFirst({

@@ -1,17 +1,7 @@
 import NotFound from "@/components/not-found";
-import StatusBar from "@/components/status-bar";
-import { Button } from "@/components/ui/button";
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
-import {
-  ArrowLeft,
-  Bookmark,
-  ExternalLink,
-  Heart,
-  MoreHorizontal,
-} from "lucide-react";
 import Proposal from "./components/proposal";
-import Link from "next/link";
 
 type PageProps = {
   params: {
@@ -22,7 +12,7 @@ type PageProps = {
 const Page = async ({ params }: PageProps) => {
   const { project_id } = params;
 
-  const session = await getAuthSession();
+  const session = await auth();
 
   const project = await db.project.findFirst({
     where: {

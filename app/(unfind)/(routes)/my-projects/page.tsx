@@ -1,12 +1,12 @@
 import { redirect } from "next/navigation";
 
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
 import JobFilters from "../projects/components/job-filters";
 import JobList from "../projects/components/job-list";
 
 const Page = async () => {
-  const session = await getAuthSession();
+  const session = await auth();
 
   if (!session?.user) {
     return redirect("/users/sign-in");

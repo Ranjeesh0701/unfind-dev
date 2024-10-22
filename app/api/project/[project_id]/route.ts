@@ -1,4 +1,4 @@
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
 
 interface IParams {

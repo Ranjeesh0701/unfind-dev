@@ -1,6 +1,5 @@
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import db from "@/libs/db";
-import { MessageValidator } from "@/libs/validators/message";
 import { Message } from "@prisma/client";
 
 const MESSAGES_BATCH = 10;
@@ -11,7 +10,7 @@ export async function GET(req: Request) {
     const cursor = searchParams.get("cursor");
     const conversationId = searchParams.get("conversationId");
 
-    const session = await getAuthSession();
+    const session = await auth();
 
     if (!session?.user) {
       return new Response("Unauthorized", { status: 401 });

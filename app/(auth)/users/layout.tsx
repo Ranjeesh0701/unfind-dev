@@ -1,4 +1,4 @@
-import { getAuthSession } from "@/libs/auth";
+import { auth } from "@/libs/auth";
 import { redirect } from "next/navigation";
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
 };
 
 const Layout = async ({ children }: Props) => {
-  const session = await getAuthSession();
+  const session = await auth();
 
   if (session?.user) {
     return redirect("/feed");
