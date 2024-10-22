@@ -1,6 +1,8 @@
 "use client";
 
+import axios from "axios";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 import {
@@ -19,6 +21,7 @@ import {
 } from "@/libs/validators/onboarding";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UseFormReturn, useForm } from "react-hook-form";
+
 import OnboardingContext from "./context";
 
 type Step = {
@@ -102,6 +105,9 @@ const steps: Step[] = [
 ];
 
 const OnboardingForm = () => {
+  const router = useRouter();
+
+  const [isLoading, setIsLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
 
   const form = useForm<OnboardingRequest>({
@@ -116,7 +122,17 @@ const OnboardingForm = () => {
 
   const { trigger } = form;
 
-  const onSubmit = () => {};
+  const onSubmit = async (values: OnboardingRequest) => {
+    try {
+      setIsLoading(true);
+      await axios.post("/api/profile", values);
+      router.push("/feed");
+    } catch (error) {
+      // TODO: handle error creating project
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const nextStep = async () => {
     const output = await trigger(steps[currentStep].fields || []);
@@ -130,7 +146,7 @@ const OnboardingForm = () => {
     }
 
     if (currentStep === steps.length - 1) {
-      onSubmit();
+      onSubmit(form.getValues());
     }
   };
 
@@ -171,6 +187,7 @@ const OnboardingForm = () => {
                     description={step.description}
                     buttonLabel={step.buttonLabel}
                     action={nextStep}
+                    disabled={isLoading}
                   >
                     {step.getChildren(form)}
                   </OnboardingContext>
