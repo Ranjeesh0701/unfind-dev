@@ -3,10 +3,10 @@
 import { LucideIcon } from "lucide-react";
 
 import { ICONSIZE } from "@/shared/size";
-import { HtmlHTMLAttributes } from "react";
+import { IconType } from "react-icons";
 
 interface IconProps {
-  icon: LucideIcon;
+  icon: LucideIcon | IconType;
   label?: string;
   labelVertical?: boolean;
   count?: number;
