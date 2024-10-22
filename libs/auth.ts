@@ -15,6 +15,18 @@ export const { auth, handlers } = NextAuth({
         session.user.image = token.picture;
       }
 
+      if (!token.sub) {
+        return session;
+      }
+
+      const dbUser = await getUserById(token.sub);
+
+      if (!dbUser) {
+        return session;
+      }
+
+      session.user.profile = dbUser.profile;
+
       return session;
     },
     async jwt({ token }) {
@@ -33,6 +45,7 @@ export const { auth, handlers } = NextAuth({
         name: dbUser.name,
         email: dbUser.email,
         picture: dbUser.image,
+        profile: dbUser.profile,
       };
     },
   },
