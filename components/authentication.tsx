@@ -25,7 +25,7 @@ const Authentication: React.FC<AuthenticationProps> = ({ signin }) => {
 
   return (
     <Background>
-      <div className="min-h-screen">
+      <div className="min-h-screen flex flex-col">
         <div className="flex justify-between items-center">
           <div className="flex items-center justify-between gap-10 px-8 py-4 mt-1">
             <div>
@@ -35,7 +35,7 @@ const Authentication: React.FC<AuthenticationProps> = ({ signin }) => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center py-6">
+        <div className="flex justify-center items-center py-6 h-full flex-1">
           <div className="rounded-xl bg-white w-[80%] md:w-[50%] lg:w-[40%]">
             <div className="flex flex-col px-6 py-10">
               <div className="pb-6">
