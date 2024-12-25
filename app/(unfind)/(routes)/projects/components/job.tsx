@@ -31,7 +31,7 @@ const Job: React.FC<JobProps> = ({ job }) => {
           </Avatar>
           <div className="flex gap-4">
             <div>
-              <p className="font-bold text-sm">{job.title}</p>
+              <p className="text-xl">{job.title}</p>
               <p className="text-gray-500 text-sm">America</p>
             </div>
             <div>

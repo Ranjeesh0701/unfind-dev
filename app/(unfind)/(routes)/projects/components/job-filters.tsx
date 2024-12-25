@@ -3,22 +3,16 @@ import { Slider } from "@/components/ui/slider";
 
 const JobFilters = () => {
   return (
-    <div className="bg-white rounded border px-4 py-6">
+    <div className="bg-white rounded border px-4 py-6 sticky top-3">
       <div className="flex justify-between items-center">
-        <p className="font-bold text-lg">Filter</p>
+        <p className="text-xl">Filter</p>
         <p className="font-semibold text-blue-600 text-xs cursor-pointer">
           Clear all
         </p>
       </div>
       {/* Filter */}
       <div className="pt-6">
-        <p className="font-bold">Salary</p>
-        <div className="pt-3">
-          <Slider />
-        </div>
-      </div>
-      <div className="pt-6">
-        <p className="font-bold">Proposals</p>
+        <p className="font-semibold">Proposals</p>
         <div className="flex gap-2 items-center pt-4">
           <Checkbox id="lessthan10" />
           <label htmlFor="lessthan10" className="text-sm text-gray-500">
@@ -45,7 +39,7 @@ const JobFilters = () => {
         </div>
       </div>
       <div className="pt-6">
-        <p className="font-bold">Experience level</p>
+        <p className="font-semibold">Experience level</p>
         <div className="flex gap-2 items-center pt-4">
           <Checkbox id="entry" />
           <label htmlFor="entry" className="text-sm text-gray-500">
