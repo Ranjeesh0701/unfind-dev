@@ -14,7 +14,7 @@ const JobList: React.FC<JobListProps> = ({ jobs }) => {
   return (
     <>
       <div className="w-full relative bg-gradient-to-tr from-gray-500 to-gray-800 px-6 py-8 mb-4 rounded text-white">
-        <h3 className="text-xl font-bold">Discover Your Ideal Project</h3>
+        <h3 className="text-2xl">Discover Your Ideal Project</h3>
         <p className="text-sm pt-4">
           Search for Your Ideal Project in Web Development, Design, Writing, and
           More!
