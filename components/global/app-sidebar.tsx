@@ -1,12 +1,13 @@
 "use client";
 
-import { Workflow } from "lucide-react";
+import { LucideIcon, Workflow } from "lucide-react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
+  SidebarGroup,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -14,7 +15,17 @@ import {
 } from "../ui/sidebar";
 import NavMenu from "./nav-menu";
 
-const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
+type AppSidebarProps = {
+  items: {
+    name: string;
+    icon: LucideIcon;
+    url: string;
+  }[];
+};
+
+const AppSidebar = ({
+  ...props
+}: React.ComponentProps<typeof Sidebar> & AppSidebarProps) => {
   const { data: session } = useSession();
   const user = session?.user;
 
@@ -37,7 +48,22 @@ const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent></SidebarContent>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarMenu>
+            {props.items.map((item) => (
+              <SidebarMenuItem key={item.name}>
+                <SidebarMenuButton asChild>
+                  <Link href={item.url}>
+                    <item.icon className="!w-[1.1rem] !height-[1.1rem]" />
+                    <span>{item.name}</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        </SidebarGroup>
+      </SidebarContent>
 
       <SidebarFooter>{user && <NavMenu user={user} />}</SidebarFooter>
     </Sidebar>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronsUpDown, LogOut, Send, Settings, User2 } from "lucide-react";
+import { ChevronsUpDown, LogOut, Settings, User, User2 } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -89,7 +89,7 @@ export function NavUser({ user, mini = false }: AppNavUserProps) {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Icon size={ICONSIZE.xs} icon={Send} label="Proposals" />
+              <Icon size={ICONSIZE.xs} icon={User} label="Profile" />
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Icon size={ICONSIZE.xs} icon={Settings} label="Settings" />
