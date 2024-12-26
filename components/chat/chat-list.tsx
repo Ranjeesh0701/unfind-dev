@@ -20,7 +20,7 @@ const ChatList: React.FC<ChatListProps> = ({ conversations, user }) => {
   const conversationId = params?.messageId;
 
   return (
-    <div className="h-full w-[340px] flex flex-col border-r">
+    <div className="h-full w-[16rem] flex flex-col border-r">
       <div className="px-4 pt-4 pb-6">
         <Search />
       </div>

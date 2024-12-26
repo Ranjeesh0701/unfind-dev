@@ -19,7 +19,7 @@ const ChatOverview: React.FC<ChatOverviewProps> = ({ conversation, user }) => {
   return (
     <div className="flex items-center gap-4 px-4">
       <div>
-        <Avatar className="w-14 h-14">
+        <Avatar className="size-10">
           <AvatarImage src={chattingWith.image as string | undefined} />
           <AvatarFallback>
             {chattingWith.name?.slice(0, 2) || "CN"}
@@ -28,7 +28,9 @@ const ChatOverview: React.FC<ChatOverviewProps> = ({ conversation, user }) => {
       </div>
       <div className="w-full">
         <div className="flex gap-2 justify-between items-center">
-          <p className="w-full font-bold line-clamp-1">{chattingWith.name}</p>
+          <p className="w-full font-semibold line-clamp-1">
+            {chattingWith.name}
+          </p>
           <p className="text-xs w-fit whitespace-nowrap text-gray-500">
             {moment(conversation.messages[0].createdAt).format("HH:mm")}
           </p>
