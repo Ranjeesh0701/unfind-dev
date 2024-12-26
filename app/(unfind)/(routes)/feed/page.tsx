@@ -25,7 +25,7 @@ const page: React.FC = async () => {
 
   return (
     <div>
-      <div className="flex flex-row">
+      <div className="flex flex-col">
         <Popular />
         {recentJobs.length > 0 ? <RecentJobs recentJobs={recentJobs} /> : null}
       </div>

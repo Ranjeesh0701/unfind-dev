@@ -22,7 +22,7 @@ const Job: React.FC<JobProps> = ({ category, verified, location, job }) => {
   return (
     <div className="rounded-xl bg-white p-2">
       <div className="flex gap-4 h-full">
-        <div className="flex flex-col overflow-hidden">
+        <div className="flex flex-col overflow-hidden w-full">
           <div className="bg-gray-100 h-full px-4 py-8 rounded-md flex flex-col">
             <div className="flex items-center justify-between pb-4">
               <div className="text-sm font-semibold">$ {job.price} / hr</div>
