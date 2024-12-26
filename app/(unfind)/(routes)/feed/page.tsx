@@ -26,18 +26,8 @@ const page: React.FC = async () => {
   return (
     <div>
       <div className="flex flex-row">
-        <div className="hidden sm:block w-[30%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
-          <Sidebar user={session?.user} />
-        </div>
-        <div className="w-[100%] sm:w-[60%] md:w-[70%] lg:w-[60%] px-4 sm:px-0 pb-5">
-          <Popular />
-          {recentJobs.length > 0 ? (
-            <RecentJobs recentJobs={recentJobs} />
-          ) : null}
-        </div>
-        <div className="hidden lg:block w-[20%]">
-          <Infobar user={session?.user} />
-        </div>
+        <Popular />
+        {recentJobs.length > 0 ? <RecentJobs recentJobs={recentJobs} /> : null}
       </div>
     </div>
   );

@@ -3,8 +3,9 @@
 import { User } from "next-auth";
 import { useRouter } from "next/navigation";
 
+import { NavUser } from "../global/nav-user";
 import { Button } from "../ui/button";
-import UserButton from "../user-button";
+import { Separator } from "../ui/separator";
 import Actions from "./actions";
 
 interface MenuProps {
@@ -18,8 +19,8 @@ const Menu: React.FC<MenuProps> = ({ user }) => {
       {user ? (
         <>
           <Actions />
-          <div className="h-[20px] w-[1px] bg-gray-200"></div>
-          <UserButton />
+          <Separator orientation="vertical" className="mr-2 h-4" />
+          <NavUser user={user} mini />
         </>
       ) : (
         <>
