@@ -2,15 +2,10 @@ import NotFound from "@/components/not-found";
 import StatusBar from "@/components/status-bar";
 import { Button } from "@/components/ui/button";
 import db from "@/libs/db";
-import {
-  ArrowLeft,
-  Bookmark,
-  ExternalLink,
-  MoreHorizontal,
-  Share,
-} from "lucide-react";
+import { ArrowLeft, ExternalLink, MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import ProjectActions from "./components/project-actions";
 import ProjectTabs from "./components/project-tabs";
 
 type PageProps = {
@@ -77,14 +72,7 @@ const Page = async ({ params, children }: PageProps) => {
                 {project.title}
               </h3>
             </div>
-            <div className="flex items-center gap-2">
-              <Button size="icon" variant="outline">
-                <Share className="h-5 w-5" />
-              </Button>
-              <Button size="icon" variant="outline">
-                <Bookmark className="h-5 w-5" />
-              </Button>
-            </div>
+            <ProjectActions projectId={project.id} />
           </div>
           {/* Status */}
           <div className="flex">

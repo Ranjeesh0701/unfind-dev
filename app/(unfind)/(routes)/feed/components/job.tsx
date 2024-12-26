@@ -10,6 +10,7 @@ import { BsBookmark } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { GoUnverified } from "react-icons/go";
 import { MdVerified } from "react-icons/md";
+import { toast } from "sonner";
 
 interface JobProps {
   category: string[];
@@ -19,6 +20,14 @@ interface JobProps {
 }
 
 const Job: React.FC<JobProps> = ({ category, verified, location, job }) => {
+  const onShareProject = () => {
+    navigator.clipboard.writeText(
+      `${window.location.origin}/projects/${job.id}`
+    );
+
+    toast.success("Project URL copied! Share it to spread the word.");
+  };
+
   return (
     <div className="rounded-xl bg-white p-2 border">
       <div className="flex gap-4 h-full">
@@ -32,7 +41,12 @@ const Job: React.FC<JobProps> = ({ category, verified, location, job }) => {
                     {job.experienceLevel}
                   </div>
                 )}
-                <Icon icon={AiOutlineShareAlt} size={ICONSIZE.md} pointer />
+                <Icon
+                  icon={AiOutlineShareAlt}
+                  size={ICONSIZE.md}
+                  pointer
+                  onClick={onShareProject}
+                />
                 <Icon icon={BsBookmark} pointer size={ICONSIZE.md} />
               </div>
             </div>
