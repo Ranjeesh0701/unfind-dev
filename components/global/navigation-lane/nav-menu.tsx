@@ -3,25 +3,20 @@
 import { User } from "next-auth";
 import { useRouter } from "next/navigation";
 
-import { NavUser } from "../global/nav-user";
-import { Button } from "../ui/button";
-import { Separator } from "../ui/separator";
-import Actions from "./actions";
+import { NavUser } from "./nav-user";
+import { Button } from "../../ui/button";
 
-interface MenuProps {
+interface NavMenuProps {
   user: User | undefined;
+  mini?: boolean;
 }
 
-const Menu: React.FC<MenuProps> = ({ user }) => {
+const NavMenu: React.FC<NavMenuProps> = ({ user, mini = false }) => {
   const router = useRouter();
   return (
     <div className="flex items-center gap-3">
       {user ? (
-        <>
-          <Actions />
-          <Separator orientation="vertical" className="mr-2 h-4" />
-          <NavUser user={user} mini />
-        </>
+        <NavUser user={user} mini={mini} />
       ) : (
         <>
           <Button
@@ -36,4 +31,4 @@ const Menu: React.FC<MenuProps> = ({ user }) => {
   );
 };
 
-export default Menu;
+export default NavMenu;

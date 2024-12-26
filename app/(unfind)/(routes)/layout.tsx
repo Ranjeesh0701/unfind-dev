@@ -9,7 +9,7 @@ import {
   SendHorizonal,
 } from "lucide-react";
 
-import NavigationLane from "@/components/global/navigation-lane";
+import NavigationLane from "@/components/global/navigation-lane/index";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const items = [

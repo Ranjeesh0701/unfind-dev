@@ -1,7 +1,7 @@
 "use client";
 
 import { LucideIcon } from "lucide-react";
-import { SidebarInset, SidebarProvider } from "../ui/sidebar";
+import { SidebarInset, SidebarProvider } from "../../ui/sidebar";
 import AppNavbar from "./app-navbar";
 import AppSidebar from "./app-sidebar";
 

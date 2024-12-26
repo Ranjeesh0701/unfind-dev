@@ -12,7 +12,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "../ui/sidebar";
+} from "../../ui/sidebar";
 import NavMenu from "./nav-menu";
 
 type AppSidebarProps = {

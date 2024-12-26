@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/sidebar";
 import { ICONSIZE } from "@/shared/size";
 import { signOut } from "next-auth/react";
-import Icon from "../ui/icon";
+import Icon from "../../ui/icon";
 
 interface AppNavUserProps {
   user: {

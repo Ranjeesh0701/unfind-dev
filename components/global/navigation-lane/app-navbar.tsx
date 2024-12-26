@@ -2,8 +2,8 @@
 
 import { useSession } from "next-auth/react";
 
-import { Separator } from "../ui/separator";
-import { SidebarTrigger } from "../ui/sidebar";
+import { Separator } from "../../ui/separator";
+import { SidebarTrigger } from "../../ui/sidebar";
 import NavMenu from "./nav-menu";
 import NavMenuActions from "./nav-menu-actions";
 

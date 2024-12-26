@@ -4,7 +4,7 @@ import { Bell, MessageSquare } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { ICONSIZE } from "@/shared/size";
-import Icon from "../ui/icon";
+import Icon from "../../ui/icon";
 
 interface NavMenuActionsProps {}
 
