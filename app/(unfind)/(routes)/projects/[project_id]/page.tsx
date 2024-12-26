@@ -48,9 +48,9 @@ const page: React.FC<PageProps> = async ({ params }) => {
   }
 
   return (
-    <div className="flex flex-row max-w-7xl mx-auto gap-4">
+    <div className="flex gap-4">
       {/* Project details */}
-      <div className="px-4 sm:px-0 flex-1">
+      <div className="flex-1">
         <div className="pb-4 flex flex-col gap-4">
           <div className="rounded-t flex flex-col gap-4">
             {/* Description */}
@@ -110,7 +110,7 @@ const page: React.FC<PageProps> = async ({ params }) => {
         </div>
       </div>
       <div className="hidden lg:block flex-[0.3]">
-        <div className="bg-white rounded border px-4 py-4">
+        <div className="bg-sidebar rounded border px-4 py-4">
           <p className="font-bold text-lg">About the client</p>
           <div className="pt-4 flex flex-col gap-2">
             <div className="flex gap-2">

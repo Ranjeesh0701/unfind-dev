@@ -20,15 +20,15 @@ interface JobProps {
 
 const Job: React.FC<JobProps> = ({ category, verified, location, job }) => {
   return (
-    <div className="rounded-xl bg-white p-2">
+    <div className="rounded-xl bg-white p-2 border">
       <div className="flex gap-4 h-full">
         <div className="flex flex-col overflow-hidden w-full">
-          <div className="bg-gray-100 h-full px-4 py-8 rounded-md flex flex-col">
+          <div className="bg-sidebar h-full px-4 py-8 rounded-md flex flex-col">
             <div className="flex items-center justify-between pb-4">
               <div className="text-sm font-semibold">$ {job.price} / hr</div>
               <div className="flex items-center gap-2">
                 {job.experienceLevel && (
-                  <div className="text-xs bg-green-200 px-2 py-1 rounded-full font-bold">
+                  <div className="text-xs bg-green-200 px-2 py-1 rounded font-bold border">
                     {job.experienceLevel}
                   </div>
                 )}
@@ -59,7 +59,7 @@ const Job: React.FC<JobProps> = ({ category, verified, location, job }) => {
             </div>
           </div>
           <div className="pt-2 flex flex-row gap-2 overflow-x-scroll no-scrollbar">
-            <div className="bg-gray-100 w-auto px-2 py-1.5 rounded-lg flex items-center gap-2">
+            <div className="bg-sidebar w-auto px-2 py-1.5 rounded-lg flex items-center gap-2">
               <div>
                 <Icon icon={AiOutlineUser} size={16} />
               </div>
@@ -75,7 +75,7 @@ const Job: React.FC<JobProps> = ({ category, verified, location, job }) => {
               </div>
             </div>
             {location && (
-              <div className="bg-gray-100 w-auto px-2 py-1.5 rounded-lg flex items-center gap-2">
+              <div className="bg-sidebar w-auto px-2 py-1.5 rounded-lg flex items-center gap-2">
                 <div>
                   <Icon icon={CiLocationOn} size={16} />
                 </div>
@@ -95,7 +95,7 @@ const Job: React.FC<JobProps> = ({ category, verified, location, job }) => {
             <div>
               <Link
                 href={`/projects/${job.id}`}
-                className="bg-gray-500 text-white text-sm font-semibold px-4 py-2 rounded-full"
+                className="bg-muted-foreground text-white text-sm font-semibold px-4 py-2 rounded-full"
               >
                 View
               </Link>
