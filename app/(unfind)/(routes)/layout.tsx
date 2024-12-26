@@ -1,5 +1,6 @@
 "use client";
 
+import NavigationLane from "@/components/global/navigation-lane";
 import {
   Bookmark,
   FlagTriangleLeft,
@@ -8,8 +9,6 @@ import {
   Search,
   SendHorizonal,
 } from "lucide-react";
-
-import NavigationLane from "@/components/global/navigation-lane/index";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const items = [
@@ -47,7 +46,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <NavigationLane items={items}>
-      <div className="min-h-full">{children}</div>
+      <div className="min-h-full flex">{children}</div>
     </NavigationLane>
   );
 };
