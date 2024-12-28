@@ -5,7 +5,7 @@ const page: React.FC = async () => {
   const session = await auth();
 
   return (
-    <div className="flex">
+    <div className="flex w-full">
       <ProjectStepForm />
     </div>
   );

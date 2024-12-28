@@ -35,7 +35,7 @@ const Page = async () => {
   });
 
   return (
-    <div className="flex flex-row max-w-7xl mx-auto gap-6">
+    <div className="flex flex-row w-full gap-6">
       <div className="hidden lg:block flex-[0.3]">
         <JobFilters />
       </div>

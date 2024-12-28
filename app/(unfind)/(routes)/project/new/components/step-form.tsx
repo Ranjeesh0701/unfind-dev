@@ -345,7 +345,7 @@ const ProjectStepForm = () => {
 
   return (
     <Form {...form}>
-      <form className="flex flex-col min-h-[calc(100vh-4rem)] xl:h-[calc(100vh-4rem)] w-full">
+      <form className="flex flex-col w-full">
         <div className="py-10 px-4 sm:px-24 xl:px-48 flex-1 flex items-center justify-center xl:overflow-y-auto">
           <div className="flex flex-col w-full">
             {steps.map(

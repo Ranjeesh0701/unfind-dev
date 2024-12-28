@@ -114,12 +114,12 @@ const page: React.FC<PageProps> = async ({ params }) => {
           <p className="font-bold text-lg">About the client</p>
           <div className="pt-4 flex flex-col gap-2">
             <div className="flex gap-2">
-              <Locate />
-              <p>United states</p>
+              <Locate className="h-4 w-4" />
+              <p className="text-sm">United states</p>
             </div>
             <div className="flex gap-2">
-              <Clock />
-              <p>Member since Mar 29, 2023</p>
+              <Clock className="h-4 w-4" />
+              <p className="text-sm">Member since Mar 29, 2023</p>
             </div>
           </div>
         </div>
